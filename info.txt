@@ -3,3 +3,15 @@ Destructuring
 Rest/Spread operator (...)
 Arrow functions
 Modulos
+
+
+clase 2
+
+instalación de node.js 
+npm
+entorno      npm create vite@latest **instuitivo
+
+entrar a la carpeta
+
+npm install
+npm run dev ***simil django abrir localhost
