@@ -1,0 +1,5 @@
+Metodos de arrays : en general - .map , .filter , .find
+Destructuring 
+Rest/Spread operator (...)
+Arrow functions
+Modulos
