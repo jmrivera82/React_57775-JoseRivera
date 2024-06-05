@@ -1,4 +1,4 @@
-import '../estilos/Header.css'
+import '../estilos/Header.scss'
 import Navbar from './Navbar.jsx'
 
 function Footer (){
@@ -7,7 +7,7 @@ function Footer (){
         <footer>
             <p>Copyright &copy; - Pizza's Cata 2024 - NotFound Design</p>
         
-        <Navbar/>
+            <Navbar isHeader={false} />
 
         </footer>
     )
