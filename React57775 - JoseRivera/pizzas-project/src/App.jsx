@@ -6,6 +6,7 @@ import Main from "./componentes/Main.jsx"
 import ItemListContainer from "./componentes/ItemListContainer.jsx"
 import ItemCount from "./componentes/ItemCount.jsx"
 import ProductDetail from "./componentes/ProductDetail.jsx"
+import Category from "./componentes/Category.jsx"
 
 
 function App (){
@@ -18,9 +19,12 @@ function App (){
           <Routes>
               <Route path="/" element={<ItemListContainer />} />
               <Route path="/product/:id" element={<ProductDetail />} />
-              {/*<ItemListContainer/>
-              <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>*/}
+              <Route path="/category/:categoryName" element={<Category />} />
+
+              {/*<ItemListContainer/>*/}
           </Routes>
+          <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>
+
           <Main/>
           <Footer/>
       </Router>

@@ -2,6 +2,8 @@ import '../estilos/ItemListContainer.scss'
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { fetchProducts } from "./Products.jsx"
+import ItemCount from './ItemCount.jsx'
+
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
@@ -20,13 +22,13 @@ const ItemListContainer = () => {
       
     }, [])
   
-    const handleDetailClick = (productId) => {
+  /*  const handleDetailClick = (productId) => {
       setSelectedProductId(selectedProductId === productId ? null : productId)
-    }
+    } */
   
-    const handleAddToCart = (product) => {
-      setCart([...cart, product])
-    }
+  const handleAddToCart = (product, quantity) => {
+      setCart([...cart, { ...product, quantity }])
+  }
 
 
     if (loading) {
@@ -41,18 +43,8 @@ const ItemListContainer = () => {
             <img src={product.imagen} alt={product.nombre} className="product-image" />
             <div className="product-details">
               <h3>{product.nombre}</h3>
-              <p>Price: ${product.precio}</p>
-              <button className="detail-button" onClick={() => handleDetailClick(product.id)}>
-                {selectedProductId === product.id ? 'Esconder detalles' : 'Mostrar detalles'}
-              </button>
-              {selectedProductId === product.id && (
-                <div className="product-extra-details">
-                  <p>{product.detalles}</p>
-                </div>
-              )}
-              <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
-                Agregar al carrito
-              </button>
+              <p>PRECIO: ${product.precio}</p>
+              <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => handleAddToCart(product, quantity)} />
               <Link to={`/product/${product.id}`} className="view-details-link">
                 Ver detalles
               </Link>
