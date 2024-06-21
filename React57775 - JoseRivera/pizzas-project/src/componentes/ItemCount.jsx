@@ -1,36 +1,32 @@
 import '../estilos/ItemCount.scss'
-import { useState } from "react"
+import React, { useState } from "react"
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
-    const [quantity, setQuantity] = useState (initial)
+    const [count, setCount] = useState(initial)
 
     const increment = () =>{
-        if (quantity < stock){
-            setQuantity(quantity+1)
+        if (count < stock){
+            setCount(count + 1)
         }
     }
 
     const decrement = () => {
-        if (quantity > 1){
-            setQuantity(quantity-1)
+        if (count > 1) {
+          setCount(count - 1)
         }
-    }
+      }
 
-    return (
-        <div className='item-count'>
-            
-                <button className='Button' onClick={decrement}>-</button>
-                <span className='Number'>{quantity}</span>
-                <button className='Button' onClick={increment}>+</button>
-                
-            
-                <button className='Button' onClick={()=>onAdd (quantity)} disabled ={stock}>
-                    Agregar al carrito
-                </button>
-        
+      return (
+        <div className="item-count">
+          <button onClick={decrement} disabled={count <= 1}>-</button>
+          <span>{count}</span>
+          <button onClick={increment} disabled={count >= stock}>+</button>
+          <button onClick={() => { console.log(`Agregando ${count} item al carrito`), onAdd(count) }} className="add-to-cart">
+            Agregar al carrito
+          </button>
         </div>
-    )
+      )
 
 }
 

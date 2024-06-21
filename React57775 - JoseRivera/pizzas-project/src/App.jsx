@@ -17,14 +17,10 @@ function App (){
           <Header/>
           <h2>Catálogo de Productos</h2>
           <Routes>
-              <Route path="/" element={<ItemListContainer />} />
+              <Route exact path="/" element={<ItemListContainer />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/category/:categoryName" element={<Category />} />
-
-              {/*<ItemListContainer/>*/}
           </Routes>
-          <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>
-
           <Main/>
           <Footer/>
       </Router>

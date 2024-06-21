@@ -8,7 +8,6 @@ import ItemCount from './ItemCount.jsx'
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const [selectedProductId, setSelectedProductId] = useState(null)
     const [cart, setCart] = useState([])
 
   
@@ -22,12 +21,9 @@ const ItemListContainer = () => {
       
     }, [])
   
-  /*  const handleDetailClick = (productId) => {
-      setSelectedProductId(selectedProductId === productId ? null : productId)
-    } */
-  
   const handleAddToCart = (product, quantity) => {
       setCart([...cart, { ...product, quantity }])
+      console.log(`Agregando ${quantity} ${product.nombre} al carrito`)
   }
 
 

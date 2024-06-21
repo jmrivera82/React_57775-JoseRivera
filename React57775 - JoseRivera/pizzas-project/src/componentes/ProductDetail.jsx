@@ -28,7 +28,7 @@ const ProductDetail = () => {
     <div className="product-detail">
       <img src={product.imagen} alt={product.nombre} />
       <h2>{product.nombre}</h2>
-      <p>Price: ${product.precio}</p>
+      <p>RRECIO: ${product.precio}</p>
       <p>{product.ingredientes}</p>
     </div>
   )
