@@ -1,5 +1,5 @@
 import '../estilos/ItemCount.scss'
-import { useState } from "React"
+import { useState } from "react"
 
 const ItemCount = ({stock, initial, onAdd}) => {
 

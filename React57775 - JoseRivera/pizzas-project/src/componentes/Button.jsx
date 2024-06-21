@@ -1,9 +1,9 @@
-//import {useState} from "React"
+import {useState} from "react"
 
 function Button(props){
 
-//    const arrayDeValores = useState("Valor inicial")
-//    const miEstado = arrayDeValores[0]
+    const arrayDeValores = useState("Valor inicial")
+    const miEstado = arrayDeValores[0]
     const hacerClick = () => {
         console.log("click")
     }

@@ -1,6 +1,7 @@
 import '../estilos/ItemListContainer.scss'
-import React, { useState, useEffect } from 'React'
-import { fetchProducts } from './Products'
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import { fetchProducts } from "./Products.jsx"
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
@@ -35,34 +36,32 @@ const ItemListContainer = () => {
     
     return (
       <div className="item-list-container">
-      {products.map((product) => (
-        <div key={product.id} className="product-item">
-          <img src={product.imagen} alt={product.nombre} className='product-image'/>
-          <div className="product-details">
-
+        {products.map((product) => (
+          <div key={product.id} className="product-item">
+            <img src={product.imagen} alt={product.nombre} className="product-image" />
+            <div className="product-details">
               <h3>{product.nombre}</h3>
-              <p>Precio: ${product.precio}</p>
-
+              <p>Price: ${product.precio}</p>
               <button className="detail-button" onClick={() => handleDetailClick(product.id)}>
-              {selectedProductId === product.id ? 'Esconder detalles' : 'Mostrar detalles'}
+                {selectedProductId === product.id ? 'Esconder detalles' : 'Mostrar detalles'}
               </button>
-
               {selectedProductId === product.id && (
-              <div className="product-extra-details">
-                <p>{product.detalles}</p>
-              </div>
+                <div className="product-extra-details">
+                  <p>{product.detalles}</p>
+                </div>
               )}
               <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
                 Agregar al carrito
               </button>
-
+              <Link to={`/product/${product.id}`} className="view-details-link">
+                Ver detalles
+              </Link>
+            </div>
           </div>
-
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     )
   }
   
-  export default ItemListContainer;
+  export default ItemListContainer
 
