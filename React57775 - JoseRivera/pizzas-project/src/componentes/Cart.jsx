@@ -24,8 +24,13 @@ const Cart = () => {
         <div>
           <ul>
             {cart.map((item) => (
-              <li key={item.id}>
-                {item.nombre} - {item.quantity} x ${item.precio}
+              <li key={item.id} className="cart-item">
+                  <img src={item.imagen} alt={item.nombre} className="cart-item-image" />
+                  <div className="cart-item-details">
+                    <h3>{item.nombre}</h3>
+                    <p>{item.quantity} x ${item.precio}</p>
+                    <p>Total: ${item.quantity * item.precio}</p>
+                  </div>
               </li>
             ))}
           </ul>
