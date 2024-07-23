@@ -7,23 +7,31 @@ import ItemListContainer from "./componentes/ItemListContainer.jsx"
 import ItemCount from "./componentes/ItemCount.jsx"
 import ProductDetail from "./componentes/ProductDetail.jsx"
 import Category from "./componentes/Category.jsx"
-
+/*10*/
+import Cart from "./componentes/Cart.jsx"
+import { CartProvider } from "./componentes/CartContext.jsx"
+import EmptyPage from "./componentes/EmptyPage.jsx"
 
 function App (){
 
   return (
     <>
-      <Router>
-          <Header/>
-          <h2>Catálogo de Productos</h2>
-          <Routes>
-              <Route exact path="/" element={<ItemListContainer />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/category/:categoryName" element={<Category />} />
-          </Routes>
-          <Main/>
-          <Footer/>
-      </Router>
+      <CartProvider>
+        <Router>
+            <Header/>
+            <h2>Catálogo de Productos</h2>
+            <Routes>
+                <Route exact path="/" element={<ItemListContainer />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/category/:categoryName" element={<Category />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/empty" element={<EmptyPage />} />
+
+            </Routes>
+            <Main/>
+            <Footer/>
+        </Router>
+      </CartProvider>
     </>
 
     )

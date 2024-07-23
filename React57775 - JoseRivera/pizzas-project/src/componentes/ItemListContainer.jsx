@@ -1,37 +1,27 @@
 import '../estilos/ItemListContainer.scss'
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import { fetchProducts } from "./Products.jsx"
 import ItemCount from './ItemCount.jsx'
-
+import { CartContext } from './CartContext.jsx'
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const [cart, setCart] = useState([])
+    const { addToCart } = useContext(CartContext)
 
-  
+    
     useEffect(() => {
-
       fetchProducts().then((data) => {
-          setProducts(data)
-          setLoading(false)
-
+        setProducts(data)
+        setLoading(false)
       })
-      
     }, [])
   
-  const handleAddToCart = (product, quantity) => {
-      setCart([...cart, { ...product, quantity }])
-      console.log(`Agregando ${quantity} ${product.nombre} al carrito`)
-  }
-
-
     if (loading) {
-      return <div>Cargando...</div>
+      return <div>Loading...</div>
     }
-    
-    
+  
     return (
       <div className="item-list-container">
         {products.map((product) => (
@@ -39,17 +29,29 @@ const ItemListContainer = () => {
             <img src={product.imagen} alt={product.nombre} className="product-image" />
             <div className="product-details">
               <h3>{product.nombre}</h3>
-              <p>PRECIO: ${product.precio}</p>
-              <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => handleAddToCart(product, quantity)} />
-              <Link to={`/product/${product.id}`} className="view-details-link">
-                Ver detalles
-              </Link>
+              <p>Precio: ${product.precio}</p>
+              <ItemCount
+              initial={1}
+              stock={product.stock}
+              onAdd={(quantity) => {
+                console.log(`Agregando ${quantity} de ${product.nombre} al carrito desde el catálogo`); // Debugging
+                addToCart(product, quantity);
+              }}
+            />
+            <Link to={`/product/${product.id}`} className="view-details-link">
+              Ver detalles
+            </Link>
             </div>
           </div>
         ))}
       </div>
-    )
-  }
+    );
+  };
   
   export default ItemListContainer
+
+
+
+
+  
 

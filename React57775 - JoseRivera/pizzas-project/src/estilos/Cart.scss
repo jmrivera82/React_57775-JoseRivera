@@ -1,0 +1,29 @@
+.cart {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  .finalize-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
