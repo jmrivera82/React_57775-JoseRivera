@@ -10,9 +10,13 @@ const Cart = () => {
 
   console.log('Cart:', cart)
 
-  const handleFinalizePurchase = () => {
+/*  const handleFinalizePurchase = () => {
     clearCart()
     navigate('/empty')
+  } */
+
+  const handleCheckout = () => {
+    navigate('/checkout')
   }
 
   return (
@@ -34,7 +38,7 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-          <button onClick={handleFinalizePurchase} className="finalize-button">Finalizar Compra</button>
+          <button onClick={handleCheckout} className="finalize-button">Finalizar Compra</button>
         </div>
       )}
     </div>

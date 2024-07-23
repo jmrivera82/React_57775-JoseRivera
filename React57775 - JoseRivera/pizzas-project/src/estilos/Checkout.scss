@@ -1,0 +1,39 @@
+.checkout {
+    padding: 20px;
+  }
+  
+  .checkout-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .checkout-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .checkout-item-details {
+    flex-grow: 1;
+  }
+  
+  .remove-button,
+  .clear-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .clear-button {
+    background-color: blue;
+  }
