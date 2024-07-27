@@ -1,9 +1,16 @@
 import React, { useContext } from 'react'
 import { CartContext } from './CartContext.jsx'
+import { useNavigate } from 'react-router-dom'
 import '../estilos/Checkout.scss'
 
 const Checkout = () => {
-    const { cart, removeFromCart, clearCart } = useContext(CartContext);
+    const { cart, removeFromCart, clearCart } = useContext(CartContext)
+    const navigate = useNavigate()
+
+    const handleFinalizePurchase = () => {
+      clearCart()
+      navigate('/confirmation')
+    }
   
     return (
       <div className="checkout">
@@ -17,18 +24,17 @@ const Checkout = () => {
                 <li key={item.id} className="checkout-item">
                   <img src={item.imagen} alt={item.nombre} className="checkout-item-image" />
                   <div className="checkout-item-details">
-                    <h3>{item.nombre}</h3>
-                    <p>{item.quantity} x ${item.precio}</p>
+                  <h3>{item.nombre}</h3>
+                  <p>{item.quantity} x ${item.precio}</p>
                     <button onClick={() => removeFromCart(item.id)} className="remove-button">Eliminar</button>
                   </div>
                 </li>
               ))}
             </ul>
-            <button onClick={clearCart} className="clear-button">Finalizar Compra</button>
+            <button onClick={handleFinalizePurchase} className="finalize-button">Finalizar Compra</button>
           </div>
         )}
       </div>
     )
   }
-  
   export default Checkout

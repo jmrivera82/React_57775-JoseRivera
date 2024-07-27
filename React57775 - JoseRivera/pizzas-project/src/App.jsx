@@ -12,6 +12,7 @@ import Cart from "./componentes/Cart.jsx"
 import { CartProvider } from "./componentes/CartContext.jsx"
 import EmptyPage from "./componentes/EmptyPage.jsx"
 import Checkout from "./componentes/Checkout.jsx"
+import ConfirmationPage from './componentes/ConfirmationPage'
 
 function App (){
 
@@ -28,6 +29,7 @@ function App (){
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/empty" element={<EmptyPage />} />
                 <Route path="/checkout" element={<Checkout />} /> 
+                <Route path="/confirmation" element={<ConfirmationPage />} />
             </Routes>
             <Main/>
             <Footer/>

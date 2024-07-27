@@ -8,17 +8,17 @@ function Navbar (props){
     if (props.isHeader == true ) {
         return(
             <nav className="navbar">
-            <div className="navbar-container">
-              <Link to="/" className="navbar-logo">Mi Tienda</Link>
-              <div className="navbar-links">
-                <Link to="/category/pizzas">Pizzas</Link>
-                <Link to="/category/bebidas">Bebidas</Link>
-                <Link to="/category/promociones">Promociones</Link>
-                <Link to="/cart">Carrito</Link>
-              </div>
-            </div>
-            <CartWidget/>
-          </nav>
+                <div className="navbar-container">
+                    <Link to="/" className="navbar-logo">Mi Tienda</Link>
+                        <div className="navbar-links">
+                            <Link to="/category/pizzas">Pizzas</Link>
+                            <Link to="/category/bebidas">Bebidas</Link>
+                            <Link to="/category/promociones">Promociones</Link>
+                            <Link to="/cart">Carrito</Link>
+                        </div>
+                </div>
+                <CartWidget/>
+            </nav>
         )
     } else {
         return(
